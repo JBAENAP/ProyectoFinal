@@ -25,15 +25,12 @@ public class Size implements DimensionCalculation {
         }
         else {
             return "Categoría 3";
-	}
+        }
+	}}
+	
 	
 	
 
-}
-	@Override
-	public double calcularcategoria() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 
 
