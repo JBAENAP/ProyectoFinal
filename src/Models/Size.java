@@ -5,7 +5,6 @@ public class Size implements DimensionCalculation {
 	private double ancho;
 	private double largo; //cm
 	private double peso; //kilos 
-	@Override
 	public String calcularVolumen(){
         double volumen = alto * ancho * largo;
         double peso;
@@ -31,5 +30,10 @@ public class Size implements DimensionCalculation {
 	
 
 }
+	@Override
+	public double calcularcategoria() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
