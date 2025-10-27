@@ -1,4 +1,4 @@
-package Models; 
+package models; 
 public class Size implements DimensionCalculation {
 	
 	private double alto;
