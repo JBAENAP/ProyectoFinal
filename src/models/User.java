@@ -41,6 +41,8 @@ public void addPaymentM(PaymentM paymentm) {
 }
 
 public Long getUserId() { return userId; }
+public void setUserId(Long userId) { 
+	this.userId = userId;}
 public String getUserName() { return userName; }
 public String getPassword() { return password; }
 		
@@ -81,7 +83,7 @@ public static class Builder {
     private List<Address> addresses = new ArrayList<>();
     private List<PaymentM> paymentM = new ArrayList<>();
 
-    public Builder withId(Long userId) { this.userId = userId; return this; }
+    public Builder withUserId(Long userId) { this.userId = userId; return this; }
     public Builder withName(String name) { this.name = name; return this; }
     public Builder withEmail(String email) { this.email = email; return this; }
     public Builder withPhone(String phone) { this.phone = phone; return this; }
@@ -105,6 +107,12 @@ public static class Builder {
         }
         return new User(this);
     }
+   
+}
+
+@Override
+public String toString() {
+    return userId + " - " + name + " (" + userName + ")";
 }
 }
 

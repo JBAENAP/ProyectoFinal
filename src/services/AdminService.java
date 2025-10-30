@@ -1,22 +1,41 @@
 package services;
+
 import models.Administrator;
 import repositories.AdminRepository;
+import models.User;
+import java.util.List;
 
 
 public class AdminService {
-	private AdminRepository repo = new AdminRepository();
-	
 
+    private AdminRepository repository;
 
-public void register(Administrator admin) {
-    if (repo.findByUsername(admin.getUserName()) != null) {
-        throw new IllegalArgumentException("El usuario ya existe");
+    // Constructor que recibe el repositorio
+    public AdminService(AdminRepository repository) {
+        this.repository = repository;
     }
-    repo.save(admin);
-}
 
-public boolean login(String username, String password) {
-    Administrator admin = repo.findByUsername(username); // o desde tu Map
-    return admin != null && admin.getPassword().equals(password);
+    // Guarda un nuevo admin
+    public void register(Administrator admin) {
+        repository.save(admin);
+    }
+
+    // Login de admin
+    public boolean login(String username, String password) {
+        Administrator admin = repository.findByUsername(username);
+        return admin != null && admin.getPassword().equals(password);
+    }
+
+
+public void showAllUsers(List<User> users) {
+    if (users == null || users.isEmpty()) {
+        System.out.println("No hay usuarios registrados.");
+        return;
+    }
+
+    System.out.println("\n-Lista de usuarios registrados");
+    for (User user : users) {
+        System.out.println(user);
+    }
 }
 }
